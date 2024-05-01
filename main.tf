@@ -8,9 +8,9 @@ terraform {
 
   # Update this block with the location of your terraform state file
   backend "azurerm" {
-    resource_group_name  = "rg-terraform12031434"
-    storage_account_name = "stoterffst12031434"
-    container_name       = "terraform-state12031434"
+    resource_group_name  = "TF_RG_NAME"
+    storage_account_name = "TF_SA_NAME"
+    container_name       = "TF_CONT_NAME"
     key                  = "terraform.tfstate"
     use_oidc             = true
   }
@@ -19,10 +19,4 @@ terraform {
 provider "azurerm" {
   features {}
   use_oidc = true
-}
-
-# Define any Azure resources to be created here. A simple resource group is shown here as a minimal example.
-resource "azurerm_resource_group" "rg" {
-  name     = var.resource_group_name
-  location = var.location
 }
